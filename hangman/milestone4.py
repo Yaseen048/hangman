@@ -12,4 +12,14 @@ class Hangman:
         self.list_of_guesses = []
 
 
-        pass
+# Printing attributes
+'''
+word_list = ['mango', 'lychee', 'orange', 'apple', 'strawberry']
+hangman = Hangman(word_list)
+print(hangman.word_list)
+print(hangman.word)
+print(hangman.num_letters)
+print(hangman.word_guessed)
+print(hangman.num_lives)
+print(hangman.list_of_guesses)
+'''
