@@ -74,6 +74,7 @@ class Hangman:
         # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
+        
         lower_case_guess = letter.lower()#turning letter into lowercase
         if lower_case_guess in self.word:
             print(f"Good letter! {lower_case_guess} is in the word.")
@@ -128,12 +129,12 @@ def play_game(word_list):
 
     while True:
 
-        if game.num_lives == 0:
+        if game.num_lives == 0:#runs out of guesses
             print(f"You lost! The word was {game.word}")
             break
         elif game.num_letters > 0:
-            game.ask_letter()
-        elif game.num_letters  == 0:
+            game.ask_letter()#There are remaining letters to be guessed
+        elif game.num_letters  == 0:#no letters to be guessed.
             print("Congratulations! You won the game!")
             break
         
