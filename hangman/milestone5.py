@@ -111,12 +111,11 @@ class Hangman:
                 self.check_letter(letter)#for new letter
                 self.list_letters.append(letter)
                 print(self.list_letters)
-            
-            if self.num_letters == 0:
                 break
+            
 
 
-def play_game(self, word_list):
+def play_game(word_list):
     # As an aid, part of the code is already provided:
     game = Hangman(word_list, num_lives=5)
     # TODO 1: To test this task, you can call the ask_letter method
@@ -129,12 +128,12 @@ def play_game(self, word_list):
 
     while True:
 
-        if self.num_lives == 0:
-            print(f"You lost! The word was {self.word}")
+        if game.num_lives == 0:
+            print(f"You lost! The word was {game.word}")
             break
-        elif self.num_letters > 0:
+        elif game.num_letters > 0:
             game.ask_letter()
-        elif self.num_lives != 0 and self.num_letters  == 0:
+        elif game.num_letters  == 0:
             print("Congratulations! You won the game!")
             break
         
