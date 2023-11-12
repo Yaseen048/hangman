@@ -11,6 +11,7 @@ class Hangman:
         self.word_guessed = ['_'] * len(self.word)
         self.list_of_guesses = []
 
+
     def check_guess(self, guess):
         lower_case_guess = guess.lower()
         if lower_case_guess in self.word:
@@ -24,7 +25,6 @@ class Hangman:
             self.num_lives -= 1
             print(f"Sorry, {lower_case_guess} is not in the word.")
             print(f"You have {self.num_lives} lives left.")
-
 
 
 
