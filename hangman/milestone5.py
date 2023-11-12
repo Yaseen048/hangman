@@ -40,7 +40,7 @@ class Hangman:
     ask_letter()
         Asks the user for a letter.
     '''
-    def __init__(self, word_list, num_lives=5):
+    def __init__(self, word_list, num_lives):
         # TODO 2: Initialize the attributes as indicated in the docstring
         # TODO 2: Print two message upon initialization:
         # 1. "The mistery word has {num_letters} characters"
@@ -50,9 +50,12 @@ class Hangman:
         self.num_lives = num_lives
         self.num_letters = len(set(self.word))
         self.word_guessed = ['_'] * len(self.word)
-        self.list_of_guesses = []
+        self.list_letters = []
 
-        pass
+        print(f"The mistery word has {self.num_letters} characters")
+        print(self.word_guessed)
+
+        
 
     def check_letter(self, letter) -> None:
         '''
@@ -85,12 +88,26 @@ class Hangman:
         # TODO 1: The letter has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
         # TODO 2. It has to be a letter that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{letter} was already tried".
         # TODO 3: If the letter is valid, call the check_letter method
-        pass
+        while True:
+            letter = input("pick a letter \n")
+            if letter.isalpha() == False or len(letter) != 1:#checks for valid input
+                print("Please, enter just one character")
+            elif letter in self.list_letters:#if user has repeated letter
+                print(f"{letter} was already tried")
+            else:
+                self.check_letter(letter)#for new letter
+                self.list_letters.append(letter)
+                print(self.list_letters)
+            
+            if self.num_letters == 0:
+                break
+
 
 def play_game(word_list):
     # As an aid, part of the code is already provided:
     game = Hangman(word_list, num_lives=5)
     # TODO 1: To test this task, you can call the ask_letter method
+    game.ask_letter()
     # TODO 2: To test this task, upon initialization, two messages should be printed 
     # TODO 3: To test this task, you call the ask_letter method and check if the letter is in the word
     
