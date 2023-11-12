@@ -74,7 +74,20 @@ class Hangman:
         # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
-        pass
+        lower_case_guess = letter.lower()#turning letter into lowercase
+        if lower_case_guess in self.word:
+            print(f"Good letter! {lower_case_guess} is in the word.")
+            for letter in self.word:
+                #replacing undercore with correct letter
+                if letter == letter:
+                    letter_index = self.word.index(letter)
+                    self.word_guessed[letter_index] = letter
+            self.num_letters -= 1
+        else:#if incorrect letter letter, number of lives reduces by 1
+            self.num_lives -= 1
+            print(f"Sorry, {lower_case_guess} is not in the word.")
+            print(f"You have {self.num_lives} lives left.")
+
 
     def ask_letter(self):
         '''
