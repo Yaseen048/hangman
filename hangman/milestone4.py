@@ -15,6 +15,12 @@ class Hangman:
         lower_case_guess = guess.lower()
         if lower_case_guess in self.word:
             print(f"Good guess! {lower_case_guess} is in the word.")
+            for letter in self.word:
+                if guess == letter:
+                    letter_index = self.word.index(letter)
+                    self.word_guessed[letter_index] = guess
+            self.num_letters -= 1
+
 
 
 
@@ -29,6 +35,9 @@ class Hangman:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
                 print(self.list_of_guesses)
+            
+            if self.num_letters == 0:
+                break
             
 
 
