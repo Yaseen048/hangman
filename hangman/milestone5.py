@@ -77,10 +77,10 @@ class Hangman:
         lower_case_guess = letter.lower()#turning letter into lowercase
         if lower_case_guess in self.word:
             print(f"Good letter! {lower_case_guess} is in the word.")
-            for letter in self.word:
+            for alphabet in self.word:
                 #replacing undercore with correct letter
-                if letter == letter:
-                    letter_index = self.word.index(letter)
+                if letter == alphabet:
+                    letter_index = self.word.index(alphabet)
                     self.word_guessed[letter_index] = letter
             self.num_letters -= 1
         else:#if incorrect letter letter, number of lives reduces by 1
