@@ -13,28 +13,29 @@ class Hangman:
 
     def check_guess(self, guess):
         lower_case_guess = guess.lower()
-        if lower_case_guess in word:
-            print(f"Good guess! {guess} is in the word.")
+        if lower_case_guess in self.word:
+            print(f"Good guess! {lower_case_guess} is in the word.")
 
-        pass
+
 
     def ask_for_input(self):
         while True:
             guess = input("pick a letter \n")
-            if guess.isalpha() == False and len(guess) != 1:
+            if guess.isalpha() == False or len(guess) != 1:
                 print("Invalid letter. Please, enter a single alphabetical character.")
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
             else:
-                check_guess(guess)
+                self.check_guess(guess)
                 self.list_of_guesses.append(guess)
-            print("Invalid letter. Please, enter a single alphabetical character.")
+                print(self.list_of_guesses)
+            
+
 
 
 # Printing attributes
 '''
-word_list = ['mango', 'lychee', 'orange', 'apple', 'strawberry']
-hangman = Hangman(word_list)
+
 print(hangman.word_list)
 print(hangman.word)
 print(hangman.num_letters)
@@ -42,3 +43,7 @@ print(hangman.word_guessed)
 print(hangman.num_lives)
 print(hangman.list_of_guesses)
 '''
+word_list = ['mango', 'lychee', 'orange', 'apple', 'strawberry']
+hangman = Hangman(word_list)
+hangman.ask_for_input()
+
