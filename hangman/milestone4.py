@@ -20,6 +20,10 @@ class Hangman:
                     letter_index = self.word.index(letter)
                     self.word_guessed[letter_index] = guess
             self.num_letters -= 1
+        else:
+            self.num_lives -= 1
+            print(f"Sorry, {lower_case_guess} is not in the word.")
+            print(f"You have {self.num_lives} lives left.")
 
 
 
